@@ -1,5 +1,3 @@
-from selenium.webdriver.common.by import By
-
 from tests.locators.base_page import BasePageLocators
 
 
@@ -16,10 +14,14 @@ class BasePage:
         return self.driver.find_element(*BasePageLocators.TITLE)
 
     @property
-    def feedbackInputs(self):
-        return self.driver.find_elements(*BasePageLocators.FEEDBACK_INPUT)
-
-    @property
     def contactButtons(self):
         return self.driver.find_elements(*BasePageLocators.CONTACT_BUTTON)
+
+    @property
+    def contactReply(self):
+        return self.driver.find_element(*BasePageLocators.CONTACT_REPLY)
+
+    @property
+    def loginPortalLink(self):
+        return self.driver.find_element(*BasePageLocators.LOGIN_PORTAL_LINK)
 

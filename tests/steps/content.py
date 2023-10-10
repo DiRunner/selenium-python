@@ -36,3 +36,23 @@ def step_impl(context, name):
 
     assert len(button_with_name) > 0
     assert all([button.is_displayed() for button in button_with_name])
+
+@then('The "(.*)" input field is empty')
+def step_impl(context, field_name):
+    page = BasePage(context.driver)
+    matching_fields = [button for button in page.feedbackInputs if
+                        button.get_attribute("placeholder") == field_name]
+
+    assert len(matching_fields) > 0
+    assert all([input_field.get_attribute("value") == '' for input_field in matching_fields])
+
+@then('There is a reply message with content "(.*)"')
+def step_impl(context, content):
+    page = BasePage(context.driver)
+    assert page.contactReply.is_displayed()
+    assert page.contactReply.text == content
+
+@then('An alert with "(.*)" message displays')
+def step_impl(context, content):
+    alert = context.driver.switch_to.alert
+    assert content in alert.text

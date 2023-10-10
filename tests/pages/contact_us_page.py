@@ -11,18 +11,14 @@ class ContactUsPage(BasePage):
         return super(ContactUsPage, self).url + '/Contact-Us/contactus.html'
 
     @property
-    def FistName(self):
-        return self.driver.find_elements(*ContactUsPageLocators.FIRST_NAME)
+    def feedbackInputs(self):
+        return self.driver.find_elements(*ContactUsPageLocators.FEEDBACK_INPUT)
 
     @property
-    def LastName(self):
-        return self.driver.find_element(*ContactUsPageLocators.LASTNAME)
+    def contactButtons(self):
+        return self.driver.find_elements(*ContactUsPageLocators.CONTACT_BUTTON)
 
     @property
-    def EmailAdress(self):
-        return self.driver.find_element(*ContactUsPageLocators.EMAIL_ADDRESS)
-
-    @property
-    def Comments(self):
-        return self.driver.find_element(*ContactUsPageLocators.COMMENTS)
+    def ContactReply(self):
+        return self.driver.find_element(*ContactUsPageLocators.CONTACT_REPLY)
 
